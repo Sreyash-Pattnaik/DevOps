@@ -23,7 +23,7 @@ pipeline {
 
         stage('Package') {
             steps {
-                bat 'jar cfe HelloWorld.jar HelloWorld HelloWorld.class'
+                bat '"C:\Program Files\Java\jdk-25.0.4\bin\jar.exe" cfe HelloWorld.jar HelloWorld HelloWorld.class'
             }
         }
 
