@@ -1,3 +1,4 @@
+```groovy
 pipeline {
     agent any
 
@@ -20,5 +21,19 @@ pipeline {
                 bat 'java HelloWorld'
             }
         }
+
+        stage('Package') {
+            steps {
+                bat 'jar cfe HelloWorld.jar HelloWorld HelloWorld.class'
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'HelloWorld.jar',
+                    fingerprint: true
+            }
+        }
     }
 }
+```
